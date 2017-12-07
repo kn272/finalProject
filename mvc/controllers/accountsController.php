@@ -54,8 +54,15 @@ class accountsController extends http\controller
     //this is the function to save the user the user profile
     public static function store()
     {
-        print_r($_POST);
-
+        $record = accounts::findOne($_REQUEST['id']);
+        $record->email = $_REQUEST['email'];
+        $record->fname = $_REQUEST['fname'];
+        $record->lname = $_REQUEST['lname'];
+        $record->phone = $_REQUEST['phone'];
+        $record->birthday = $_REQUEST['birthday'];
+        $record->gender = $_REQUEST['gender'];
+        $record->password = $_REQUEST['password'];
+        $record->save();
     }
 
     public static function edit()
@@ -64,6 +71,13 @@ class accountsController extends http\controller
 
         self::getTemplate('edit_account', $record);
 
+    }
+    
+    public static function delete()
+    {
+        $record = accounts::findOne($_REQUEST['id']);
+        $record->delete();
+        //header('Location: https://web.njit.edu/~kn272/finalProject/mvc/index.php?page=accounts&action=all');
     }
 
     //this is to login, here is where you find the account and allow login or deny.

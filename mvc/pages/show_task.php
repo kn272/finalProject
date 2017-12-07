@@ -26,6 +26,10 @@ print_r($data);
     <button type="submit" form="form1" value="delete">Delete</button>
 </form>
 
+<form action="index.php?page=tasks&action=edit&id=<?php echo $data->id; ?> " method="post" id="form2">
+    <button type="submit" form="form2" value="edit">Edit</button>
+</form>
+
 
 
 

@@ -19,7 +19,7 @@ class processRequest
         $requested_route = processRequest::getRequestedRoute();
 
         //this print r shows the requested route
-        //print_r($requested_route);
+        print_r($requested_route);
         //This is an important function to look at, it determines which controller to use
         $controller_name = $requested_route->controller;
         //this determines the method to call for the controller

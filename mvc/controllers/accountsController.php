@@ -36,7 +36,7 @@ class accountsController extends http\controller
     //this is to register an account i.e. insert a new account
     public static function register()
     {
-        //https://www.sitepoint.com/why-you-should-use-bcrypt-to-hash-stored-passwords/
+        /*//https://www.sitepoint.com/why-you-should-use-bcrypt-to-hash-stored-passwords/
         //USE THE ABOVE TO SEE HOW TO USE Bcrypt
         print_r($_POST);
         //this just shows creating an account.
@@ -48,13 +48,15 @@ class accountsController extends http\controller
         $record->birthday = "0";
         $record->gender = "male";
         $record->password = "12345";
-        $record->save();
+        $record->save();*/
+        
+        self::getTemplate('register');
     }
 
     //this is the function to save the user the user profile
     public static function store()
     {
-        $record = accounts::findOne($_REQUEST['id']);
+        /*$record = accounts::findOne($_REQUEST['id']);
         $record->email = $_REQUEST['email'];
         $record->fname = $_REQUEST['fname'];
         $record->lname = $_REQUEST['lname'];
@@ -62,7 +64,34 @@ class accountsController extends http\controller
         $record->birthday = $_REQUEST['birthday'];
         $record->gender = $_REQUEST['gender'];
         $record->password = $_REQUEST['password'];
-        $record->save();
+        $record->save();*/
+        
+         $user = accounts::findUserbyEmail($_REQUEST['email']);
+        if ($user == FALSE) {
+            $user = new account();
+            $user->email = $_POST['email'];
+            $user->fname = $_POST['fname'];
+            $user->lname = $_POST['lname'];
+            $user->phone = $_POST['phone'];
+            $user->birthday = $_POST['birthday'];
+            $user->gender = $_POST['gender'];
+            //$user->password = $_POST['password'];
+            //this creates the password
+            //this is a mistake you can fix...
+            //Turn the set password function into a static method on a utility class.
+            $user->password = $user->setPassword($_POST['password']);
+            $user->save();
+            //you may want to send the person to a
+            // login page or create a session and log them in
+            // and then send them to the task list page and a link to create tasks
+            header("Location: index.php?page=accounts&action=all");
+        } else {
+            //You can make a template for errors called error.php
+            // and load the template here with the error you want to show.
+           // echo 'already registered';
+            $error = 'already registered';
+            self::getTemplate('error', $error);
+        }
     }
 
     public static function edit()
@@ -73,11 +102,25 @@ class accountsController extends http\controller
 
     }
     
+    //this is used to save the update form data
+    public static function save() {
+        $user = accounts::findOne($_REQUEST['id']);
+        $user->email = $_POST['email'];
+        $user->fname = $_POST['fname'];
+        $user->lname = $_POST['lname'];
+        $user->phone = $_POST['phone'];
+        $user->birthday = $_POST['birthday'];
+        $user->gender = $_POST['gender'];
+        $user->save();
+        header("Location: index.php?page=accounts&action=all");
+    }
+    
     public static function delete()
     {
         $record = accounts::findOne($_REQUEST['id']);
         $record->delete();
         //header('Location: https://web.njit.edu/~kn272/finalProject/mvc/index.php?page=accounts&action=all');
+        header("Location: index.php?page=accounts&action=all");
     }
 
     //this is to login, here is where you find the account and allow login or deny.
@@ -90,7 +133,23 @@ class accountsController extends http\controller
         //after you login you can use the header function to forward the user to a page that displays their tasks.
         //        $record = accounts::findUser($_POST['uname']);
 
-        print_r($_POST);
+        //print_r($_POST);
+        
+        $user = accounts::findUserbyEmail($_REQUEST['email']);
+      
+        if ($user == FALSE) {
+            echo 'user not found';
+        } else {
+            if($user->checkPassword($_POST['password']) == TRUE) {
+                echo 'login';
+                session_start();
+                $_SESSION["userID"] = $user->id;
+                //forward the user to the show all todos page
+                print_r($_SESSION);
+            } else {
+                echo 'password does not match';
+            }
+        }
 
     }
 

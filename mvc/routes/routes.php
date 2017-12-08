@@ -114,6 +114,24 @@ class routes
         $route->method = 'store';
         $routes[] = $route;
         
+        
+        //this is the route for the reg form
+        $route = new route();
+        $route->http_method = 'GET';
+        $route->action = 'register';
+        $route->page = 'accounts';
+        $route->controller = 'accountsController';
+        $route->method = 'register';
+        $routes[] = $route;
+        //this handles the reg post to create the user
+        $route = new route();
+        $route->http_method = 'POST';
+        $route->action = 'register';
+        $route->page = 'accounts';
+        $route->controller = 'accountsController';
+        $route->method = 'store';
+        $routes[] = $route;
+
               //This is an examole of the post for tasks to show a task
         //GET METHOD index.php?page=tasks&action=show
         $route = new route();
@@ -188,6 +206,16 @@ class routes
         
         return $routes;
     }
+    
+    public static function create($http_method,$action,$page,$controller,$method) {
+        $route = new route();
+        $route->http_method = $http_method;
+        $route->action = $action;
+        $route->page = $page;
+        $route->controller = $controller;
+        $route->method = $method;
+    }
+
 }
 //this is the route prototype object  you would make a factory to return this
 class route

@@ -251,8 +251,8 @@ class routes
         $route = new route();
         $route->http_method = 'GET';
         $route->action = 'logout';
-        $route->page = 'tasks';
-        $route->controller = 'tasksController';
+        $route->page = 'accounts';
+        $route->controller = 'accountsController';
         $route->method = 'logout';
         $routes[] = $route;
 
@@ -260,8 +260,8 @@ class routes
         $route = new route();
         $route->http_method = 'POST';
         $route->action = 'logout';
-        $route->page = 'tasks';
-        $route->controller = 'tasksController';
+        $route->page = 'accounts';
+        $route->controller = 'accountsController';
         $route->method = 'logout';
         $routes[] = $route;
 

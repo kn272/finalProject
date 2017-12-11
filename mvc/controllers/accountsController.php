@@ -161,7 +161,7 @@ class accountsController extends http\controller
     
     public static function logout()
     {
-      session_start();
+      
       session_destroy();
       header("Location: https://web.njit.edu/~kn272/finalProject/mvc/");
     }

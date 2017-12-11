@@ -66,16 +66,16 @@ class tasksController extends http\controller
         $record->body = $_REQUEST['body'];
         $record->save();*/
         print_r($_POST);
-        
+        session_start();
         $record = todos::findOne($_REQUEST['id']);
         $record->owneremail = $_REQUEST['owneremail'];
-        $record->ownerid = $_REQUEST['ownerid'];
+        $record->ownerid = $_SESSION['userID'];
         $record->createddate = $_REQUEST['createddate'];
         $record->duedate = $_REQUEST['duedate'];
         $record->message = $_REQUEST['message'];
         $record->isdone = $_REQUEST['isdone'];
         $record->save();
-        //header('https://web.njit.edu/~kn272/finalProject/mvc/index.php?page=tasks&action=all');
+        header("Location: index.php?page=tasks&action=all");
         
 
     }
@@ -101,8 +101,8 @@ class tasksController extends http\controller
     {
         $record = todos::findOne($_REQUEST['id']);
         $record->delete();
-        print_r($_POST);
-        //header('https://web.njit.edu/~kn272/finalProject/mvc/index.php?page=tasks&action=all');
+        //print_r($_POST);
+        header("Location: index.php?page=tasks&action=all");
 
     }
 

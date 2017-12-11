@@ -23,7 +23,7 @@ class tasksController extends http\controller
     public static function all()
     {
         $records = todos::findAll();
-        /*session_start();
+        session_start();
            if(key_exists('userID',$_SESSION)) {
                $userID = $_SESSION['userID'];
            } else {
@@ -31,7 +31,7 @@ class tasksController extends http\controller
            }
         $userID = $_SESSION['userID'];
         $records = todos::findTasksbyID($userID);
-        */
+        
 
         self::getTemplate('all_tasks', $records);
         
@@ -43,7 +43,9 @@ class tasksController extends http\controller
 
     public static function create()
     {
-        print_r($_POST);
+       $record = new account;
+       self::getTemplate('create_task',$record);
+        
     }
 
     //this is the function to view edit record form
@@ -80,10 +82,17 @@ class tasksController extends http\controller
     
     public static function save() {
         session_start();
-        $task = new todo();
-        $task->body = $_POST['body'];
-        $task->ownerid = $_SESSION['userID'];
-        $task->save();
+        $record = new todo();
+        //$task->body = $_POST['body'];
+        $record->owneremail = $_REQUEST['owneremail'];
+        //$record->ownerid = $_REQUEST['ownerid'];
+        $record->createddate = $_REQUEST['createddate'];
+        $record->duedate = $_REQUEST['duedate'];
+        $record->message = $_REQUEST['message'];
+        $record->isdone = $_REQUEST['isdone'];
+        $record->ownerid = $_SESSION['userID'];
+        $record->save();
+        header("Location: index.php?page=accounts&action=login");
     }
 
     //this is the delete function.  You actually return the edit form and then there should be 2 forms on that.

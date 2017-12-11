@@ -16,10 +16,9 @@
 </head>
 
 <body>
-
+<h1><a href="index.php?page=tasks&action=create">Create task</a></h1><br>
 <?php
 //this is how you print something
-
 print utility\htmlTable::genarateTableFromMultiArray($data);
 
 

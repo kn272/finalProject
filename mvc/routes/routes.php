@@ -202,6 +202,41 @@ class routes
         $route->method = 'store';
         $routes[] = $route;
         
+        //GET METHOD index.php?page=tasks&action=create
+        $route = new route();
+        $route->http_method = 'GET';
+        $route->action = 'create';
+        $route->page = 'tasks';
+        $route->controller = 'tasksController';
+        $route->method = 'create';
+        $routes[] = $route;
+        
+        //POST METHOD index.php?page=tasks&action=create
+        $route = new route();
+        $route->http_method = 'POST';
+        $route->action = 'create';
+        $route->page = 'tasks';
+        $route->controller = 'tasksController';
+        $route->method = 'create';
+        $routes[] = $route;
+        
+        //GET METHOD index.php?page=tasks&action=save
+        $route = new route();
+        $route->http_method = 'GET';
+        $route->action = 'save';
+        $route->page = 'tasks';
+        $route->controller = 'tasksController';
+        $route->method = 'save';
+        $routes[] = $route;
+        
+        //POST METHOD index.php?page=tasks&action=save
+        $route = new route();
+        $route->http_method = 'POST';
+        $route->action = 'save';
+        $route->page = 'tasks';
+        $route->controller = 'tasksController';
+        $route->method = 'save';
+        $routes[] = $route;
 
         
         return $routes;

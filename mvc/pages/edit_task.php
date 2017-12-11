@@ -25,7 +25,7 @@ print_r($data);
 
 <form action="index.php?page=tasks&action=store&id=<?php echo $data->id; ?> " method="post" id="form1">
     owneremail : <input type="text" form="form1" name="owneremail" value=<?php echo $data->owneremail; ?>><br>
-    ownerid    : <input type="text" form="form1" name="ownerid" value=<?php echo $data->ownerid; ?>><br>
+    <!--ownerid    : <input type="text" form="form1" name="ownerid" value=<?php echo $data->ownerid; ?>><br>-->
     createdDate: <input type="text" form="form1" name="createddate" value=<?php echo $data->createddate; ?>><br>
     dueDate    : <input type="text" form="form1" name="duedate" value=<?php echo $data->duedate; ?>><br>
     message    : <input type="text" form="form1" name="message" value=<?php echo $data->message; ?>><br>

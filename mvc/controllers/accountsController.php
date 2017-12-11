@@ -150,7 +150,7 @@ class accountsController extends http\controller
                 self::getTemplate('all_tasks', $data);
                 //forward the user to the show all todos page
                 
-                print_r($_SESSION);
+                //print_r($_SESSION);
                 
             } else {
                 echo 'password does not match';

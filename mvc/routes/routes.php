@@ -153,6 +153,15 @@ class routes
         $route->method = 'all';
         $routes[] = $route;
         
+        //GET method for index.php?page=tasks&action=delete
+        $route = new route();
+        $route->http_method = 'GET';
+        $route->action = 'delete';
+        $route->page = 'tasks';
+        $route->controller = 'tasksController';
+        $route->method = 'delete';
+        $routes[] = $route;
+        
         //POST method for index.php?page=tasks&action=delete
         $route = new route();
         $route->http_method = 'POST';

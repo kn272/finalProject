@@ -135,17 +135,23 @@ class accountsController extends http\controller
 
         //print_r($_POST);
         
-        $user = accounts::findUserbyEmail($_REQUEST['email']);
+        $user = accounts::findUserbyEmail($_REQUEST['uname']);
+        
+        print_r($user);
       
         if ($user == FALSE) {
             echo 'user not found';
         } else {
-            if($user->checkPassword($_POST['password']) == TRUE) {
-                echo 'login';
+            if($user->checkPassword($_POST['psw']) == TRUE) {
+                //echo '<br><h1>login successfull </h1> <br>';
                 session_start();
                 $_SESSION["userID"] = $user->id;
+                $data = todos::findTasksbyID($_SESSION["userID"]);
+                self::getTemplate('all_tasks', $data);
                 //forward the user to the show all todos page
+                
                 print_r($_SESSION);
+                
             } else {
                 echo 'password does not match';
             }

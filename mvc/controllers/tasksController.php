@@ -72,7 +72,7 @@ class tasksController extends http\controller
         $record->duedate = $_REQUEST['duedate'];
         $record->message = $_REQUEST['message'];
         $record->isdone = $_REQUEST['isdone'];
-        $record->update();
+        $record->save();
         //header('https://web.njit.edu/~kn272/finalProject/mvc/index.php?page=tasks&action=all');
         
 

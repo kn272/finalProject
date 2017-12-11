@@ -92,7 +92,7 @@ class tasksController extends http\controller
         $record->isdone = $_REQUEST['isdone'];
         $record->ownerid = $_SESSION['userID'];
         $record->save();
-        header("Location: index.php?page=accounts&action=login");
+        header("Location: index.php?page=tasks&action=all");
     }
 
     //this is the delete function.  You actually return the edit form and then there should be 2 forms on that.

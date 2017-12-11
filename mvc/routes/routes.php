@@ -246,6 +246,24 @@ class routes
         $route->controller = 'tasksController';
         $route->method = 'save';
         $routes[] = $route;
+        
+        //GET method for index.php?page=tasks&action=logout
+        $route = new route();
+        $route->http_method = 'GET';
+        $route->action = 'logout';
+        $route->page = 'tasks';
+        $route->controller = 'tasksController';
+        $route->method = 'logout';
+        $routes[] = $route;
+
+        //POST method for index.php?page=tasks&action=delete
+        $route = new route();
+        $route->http_method = 'POST';
+        $route->action = 'logout';
+        $route->page = 'tasks';
+        $route->controller = 'tasksController';
+        $route->method = 'logout';
+        $routes[] = $route;
 
         
         return $routes;

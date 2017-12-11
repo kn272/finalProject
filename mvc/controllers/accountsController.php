@@ -137,7 +137,7 @@ class accountsController extends http\controller
         
         $user = accounts::findUserbyEmail($_REQUEST['uname']);
         
-        print_r($user);
+        //print_r($user);
       
         if ($user == FALSE) {
             echo 'user not found';
@@ -157,6 +157,13 @@ class accountsController extends http\controller
             }
         }
 
+    }
+    
+    public static function logout()
+    {
+      session_start();
+      session_destroy();
+      header("Location: https://web.njit.edu/~kn272/finalProject/mvc/");
     }
 
 }

@@ -96,7 +96,8 @@ class accountsController extends http\controller
 
     public static function edit()
     {
-        $record = accounts::findOne($_REQUEST['id']);
+        session_start();
+        $record = accounts::findOne($_SESSION['userID']);
 
         self::getTemplate('edit_account', $record);
 
@@ -111,8 +112,9 @@ class accountsController extends http\controller
         $user->phone = $_POST['phone'];
         $user->birthday = $_POST['birthday'];
         $user->gender = $_POST['gender'];
+        $user->password = $user->setPassword($_POST['password']);
         $user->save();
-        header("Location: index.php?page=accounts&action=all");
+        header("Location: index.php?page=tasks&action=all");
     }
     
     public static function delete()

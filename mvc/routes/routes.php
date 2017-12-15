@@ -91,7 +91,7 @@ class routes
         $route->action = 'edit';
         $route->page = 'accounts';
         $route->controller = 'accountsController';
-        $route->method = 'edit';
+        $route->method = 'save';
         $routes[] = $route;
         
         
@@ -112,6 +112,25 @@ class routes
         $route->page = 'accounts';
         $route->controller = 'accountsController';
         $route->method = 'store';
+        $routes[] = $route;
+        
+          //GET method for index.php?page=accounts&action=save  
+        $route = new route();
+        $route->http_method = 'GET';
+        $route->action = 'save';
+        $route->page = 'accounts';
+        $route->controller = 'accountssController';
+        $route->method = 'save';
+        $routes[] = $route;
+        
+        
+        //POST method for index.php?page=accounts&action=save
+        $route = new route();
+        $route->http_method = 'POST';
+        $route->action = 'save';
+        $route->page = 'accounts';
+        $route->controller = 'accountsController';
+        $route->method = 'save';
         $routes[] = $route;
         
         

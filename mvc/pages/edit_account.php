@@ -23,14 +23,14 @@
 print_r($data);
 ?>
 
-<form action="index.php?page=accounts&action=store&id=<?php echo $data->id; ?> " method="post" id="form1">
+<form action="index.php?page=accounts&action=save&id=<?php echo $_SESSION['userID']; ?> " method="post" id="form1">
     email      : <input type="text" form="form1" name="email" value=<?php echo $data->email; ?>><br>
     fname      : <input type="text" form="form1" name="fname" value=<?php echo $data->fname; ?>><br>
     lname      : <input type="text" form="form1" name="lname" value=<?php echo $data->lname; ?>><br>
     phone      : <input type="text" form="form1" name="phone" value=<?php echo $data->phone; ?>><br>
     birthday   : <input type="text" form="form1" name="birthday" value=<?php echo $data->birthday; ?>><br>
     gender     : <input type="text" form="form1"  name="gender" value=<?php echo $data->gender; ?>><br>
-    password   : <input type="text" form="form1"  name="password" value=<?php echo $data->password; ?>><br>
+    password   : <input type="password" form="form1"  name="password" value=''><br>
     <button type="submit" form="form1" value="edit">save</button>
 </form>
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap</title>
+  <title>Todo tasks</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -15,7 +15,7 @@
     }
     
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 450px}
+    .row.content {height: 550px}
     
     /* Set gray background color and 100% height */
     .sidenav {
@@ -76,7 +76,7 @@
   <button type="submit" class="btn btn-default">Submit</button>
 </form>
        <hr>
-       <h2><p class="text-center"><a href="index.php?page=accounts&action=register">Register</a></p></h2>
+       <h2><p class="text-center"><a class="btn btn-primary" href="index.php?page=accounts&action=register">Register</a></p></h2>
     </div>
     <div class="col-sm-2 sidenav">
     </div>

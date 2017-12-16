@@ -6,7 +6,17 @@ class htmlTable
     public static function genarateTableFromMultiArray($array)
     {
 
-        $tableGen = '<table border="1"cellpadding="10">';
+        $tableGen = '<!DOCTYPE html>';
+        $tableGen .= '<html lang="en">';
+        $tableGen .= '<head>';
+        $tableGen .= '<meta charset="utf-8">';
+        $tableGen .= '<meta name="viewport" content="width=device-width, initial-scale=1">';
+        $tableGen .= '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">';
+        $tableGen .= '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>';
+        $tableGen .= '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><style>th, td {padding: 6px; text-align: left;
+}</style></head>';
+        $tableGen .= '<div class="container">';
+        $tableGen .= '<body><table border="1" class="table-striped">';
         $tableGen .= '<tr>';
         //this grabs the first element of the array so we can extract the field headings for the table
         $fieldHeadings = $array[0];
@@ -16,16 +26,19 @@ class htmlTable
         $referingPage = $_REQUEST['page'];
         //$referringPage = 'tasks';
         foreach ($fieldHeadings as $heading) {
+          if($heading =='id'){
+            $tableGen .= '<th>tasks</th>';
+          }else{
             $tableGen .= '<th>' . $heading . '</th>';
+          }
         }
+        //$tableGen .= '<th>tasks</th>';
         $tableGen .= '</tr>';
         foreach ($array as $record) {
             $tableGen .= '<tr>';
             foreach ($record as $key => $value) {
                 if ($key == 'id') {
-                    $tableGen .= '<td><a href="index.php?page=' . $referingPage . '&action=show&id=' . $value . '">View</a><br>
-                    <a href="index.php?page=' . $referingPage . '&action=edit&id=' . $value . '">edit</a><br>
-                    <a href="index.php?page=' . $referingPage . '&action=delete&id=' . $value . '">delete</a></td>';
+                    $tableGen .= '<td><a href="index.php?page=' . $referingPage . '&action=edit&id=' . $value . '"><span class="glyphicon glyphicon-pencil"></span>edit</a><br><a href="index.php?page=' . $referingPage . '&action=delete&id=' . $value . '"><span class="glyphicon glyphicon-trash">delete</a></td>';
                 } else {
                     $tableGen .= '<td>' . $value . '</td>';
                 }
@@ -33,7 +46,7 @@ class htmlTable
             $tableGen .= '</tr>';
         }
 
-        $tableGen .= '</table>';
+        $tableGen .= '</table></div>';
 
         return $tableGen;
     }

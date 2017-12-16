@@ -31,10 +31,7 @@ class tasksController extends http\controller
            }
         $userID = $_SESSION['userID'];
         $records = todos::findTasksbyID($userID);
-        
-
         self::getTemplate('all_tasks', $records);
-        
     }
     //to call the show function the url is called with a post to: index.php?page=task&action=create
     //this is a function to create new tasks

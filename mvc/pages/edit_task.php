@@ -1,42 +1,102 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-
-    <title>The HTML5 Herald</title>
-    <meta name="description" content="The HTML5 Herald">
-    <meta name="author" content="SitePoint">
-
-    <link rel="stylesheet" href="css/styles.css?v=1.0">
-
-    <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-    <![endif]-->
+  <title>Todo tasks</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 550px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+  </style>
 </head>
-
 <body>
 
-<?php
-//this is how you print something  $data contains the record that was selected on the table.
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">TODO tasks</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Edit Task</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-3 sidenav">
 
-print_r($data);
-?>
-
-<form action="index.php?page=tasks&action=store&id=<?php echo $data->id; ?> " method="post" id="form1">
-    owneremail : <input type="text" form="form1" name="owneremail" value=<?php echo $data->owneremail; ?>><br>
-    <!--ownerid    : <input type="text" form="form1" name="ownerid" value=<?php echo $data->ownerid; ?>><br>-->
-    createdDate: <input type="text" form="form1" name="createddate" value=<?php echo $data->createddate; ?>><br>
-    dueDate    : <input type="text" form="form1" name="duedate" value=<?php echo $data->duedate; ?>><br>
-    message    : <input type="text" form="form1" name="message" value=<?php echo $data->message; ?>><br>
-    isDone     :<input type="text" form="form1"  name="isdone" value=<?php echo $data->isdone; ?>><br>
-    <button type="submit" form="form1" value="edit">save</button>
+    </div>
+    <div class="col-sm-6 text-left"> 
+      <h1><p class="text-center">EDIT TASK</p></h1>
+      <hr>
+<form action="index.php?page=tasks&action=store&id=<?php echo $data->id; ?> " method="post">
+  <div class="form-group">
+    <label for="owneremail">Owner Email:</label>
+    <input type="text" class="form-control" name="owneremail" value=<?php echo $data->owneremail; ?> required>
+  </div>
+    <div class="form-group">
+    <label for="createddate">Created Date:</label>
+    <input type="text" class="form-control" name="createddate" value=<?php echo $data->createddate; ?> required>
+  </div>
+    <div class="form-group">
+    <label for="duedate">Due Date:</label>
+    <input type="text" class="form-control" name="duedate" value=<?php echo $data->duedate; ?> required>
+  </div>
+    <div class="form-group">
+    <label for="message">Message:</label>
+    <input type="text" class="form-control" name="message" value=<?php echo $data->message; ?> required>
+  </div>
+    <div class="form-group">
+    <label for="isdone">isdone:</label>
+    <input type="text" class="form-control" name="isdone" value=<?php echo $data->isdone; ?> required>
+  </div>
+  <button class="btn btn-primary btn-block" type="submit" class="btn btn-default">Edit</button>
 </form>
+       
+    </div>
+    <div class="col-sm-3 sidenav">
+    </div>
+  </div>
+</div>
 
+<footer class="container-fluid text-center">
+  <p>Web Systems Development Final Project</p>
+</footer>
 
-
-
-
-<script src="js/scripts.js"></script>
 </body>
 </html>

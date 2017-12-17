@@ -27,7 +27,7 @@
     
     /* Set black background color, white text and some padding */
     footer {
-      background-color: #555;
+      background-color: #0d0d0d;
       color: white;
       padding: 15px;
     }

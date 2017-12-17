@@ -26,7 +26,7 @@
     
     /* Set black background color, white text and some padding */
     footer {
-      background-color: #555;
+      background-color: #0d0d0d;
       color: white;
       padding: 15px;
     }
@@ -53,7 +53,7 @@
         <li class="active"><a href="#">Home</a></li>
       </ul>
           <ul class="nav navbar-nav navbar-right">
-      <li><a href="index.php?page=accounts&action=edit&id=<?php echo $_SESSION['userID']; ?>""><span class="glyphicon glyphicon-user"></span> Update Profile</a></li>
+      <li><a href="index.php?page=accounts&action=edit&id=<?php echo $_SESSION['userID']; ?>"><span class="glyphicon glyphicon-user"></span> Update Profile</a></li>
       <li><a href="index.php?page=accounts&action=logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
     </ul>
     </div>
@@ -66,11 +66,12 @@
 
     </div>
     <div class="col-sm-8 text-left">
-    <br>
-    <a href="index.php?page=tasks&action=create" class="btn btn-info btn-sm">
-    <span class="glyphicon glyphicon-plus"></span> Create task 
-    </a>
+       <h1><p class="text-center">YOUR TASKS</p></h1>
      <hr>
+    <a href="index.php?page=tasks&action=create" class="btn btn-info btn-sm btn-block">
+    <span class="glyphicon glyphicon-plus"></span> Add task 
+    </a>
+    <br><br>
      <?php
       if($data==NULL) {
         echo '<center>No tasks available</center><br>';

@@ -18,13 +18,10 @@ class htmlTable
         $tableGen .= '<div class="container">';
         $tableGen .= '<body><table border="1" class="table-striped">';
         $tableGen .= '<tr>';
-        //this grabs the first element of the array so we can extract the field headings for the table
         $fieldHeadings = $array[0];
         $fieldHeadings = get_object_vars($fieldHeadings);
         $fieldHeadings = array_keys($fieldHeadings);
-        //this gets the page being viewed so that the table routes requests to the correct controller
         $referingPage = $_REQUEST['page'];
-        //$referringPage = 'tasks';
         foreach ($fieldHeadings as $heading) {
           if($heading =='id'){
             $tableGen .= '<th>tasks</th>';
@@ -32,7 +29,6 @@ class htmlTable
             $tableGen .= '<th>' . $heading . '</th>';
           }
         }
-        //$tableGen .= '<th>tasks</th>';
         $tableGen .= '</tr>';
         foreach ($array as $record) {
             $tableGen .= '<tr>';

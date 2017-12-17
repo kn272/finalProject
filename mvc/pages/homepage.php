@@ -26,7 +26,7 @@
     
     /* Set black background color, white text and some padding */
     footer {
-      background-color: #555;
+      background-color: #0d0d0d;
       color: white;
       padding: 15px;
     }
@@ -52,6 +52,9 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
       </ul>
+      <ul class="nav navbar-nav navbar-right">
+      <li><a href="index.php?page=accounts&action=register"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+      </ul>
     </div>
   </div>
 </nav>
@@ -62,7 +65,7 @@
 
     </div>
     <div class="col-sm-8 text-left"> 
-      <h1><p class="text-center">LOGIN</p></h1>
+      <h1><p class="text-center">ENTER LOGIN DETAILS</p></h1>
       <hr>
 <form action="index.php?page=accounts&action=login" method="POST">
   <div class="form-group">
@@ -73,10 +76,9 @@
     <label for="pwd">Password:</label>
     <input type="password" class="form-control" name="psw" required>
   </div>
-  <button type="submit" class="btn btn-default">Submit</button>
+  <hr>
+  <center><button type="submit" class="btn btn-info">Login</button></center>
 </form>
-       <hr>
-       <h2><p class="text-center"><a class="btn btn-primary" href="index.php?page=accounts&action=register">Register</a></p></h2>
     </div>
     <div class="col-sm-2 sidenav">
     </div>

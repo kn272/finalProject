@@ -67,15 +67,15 @@
 <form action="index.php?page=accounts&action=save&id=<?php echo $_SESSION['userID']; ?> " method="post">
   <div class="form-group">
     <label for="first name">First Name:</label>
-    <input type="text" class="form-control" name="fname" value=<?php echo $data->fname; ?> required>
+    <input type="text" class="form-control" name="fname" pattern=".{1,}" value=<?php echo $data->fname; ?> required>
   </div>
     <div class="form-group">
     <label for="last name">Last Name:</label>
-    <input type="text" class="form-control" name="lname" value=<?php echo $data->lname; ?> required>
+    <input type="text" class="form-control" name="lname" pattern=".{1,}" value=<?php echo $data->lname; ?> required>
   </div>
     <div class="form-group">
     <label for="email">Email address:</label>
-    <input type="email" class="form-control" name="email" value=<?php echo $data->email; ?> required>
+    <input type="email" class="form-control" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value=<?php echo $data->email; ?> required>
   </div>
     <div class="form-group">
     <label for="phone">Phone:</label>
@@ -91,7 +91,7 @@
   </div>
   <div class="form-group">
     <label for="password">Password:</label>
-    <input type="password" class="form-control" name="password" value='' required>
+    <input type="password" class="form-control" name="password" value='' pattern=".{6,}" required>
   </div>
   <button class="btn btn-primary btn-block" type="submit" class="btn btn-default">Submit Form</button>
 </form>

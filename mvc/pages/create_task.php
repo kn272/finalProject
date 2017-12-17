@@ -69,7 +69,7 @@
 <form action="index.php?page=tasks&action=save" method="post">
   <div class="form-group">
     <label for="owneremail">Owner Email:</label>
-    <input type="email" class="form-control" name="owneremail" value=<?php session_start(); echo $_SESSION["email"] ?>>
+    <input type="email" class="form-control" name="owneremail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value=<?php session_start(); echo $_SESSION["email"] ?>>
   </div>
     <div class="form-group">
     <label for="createddate">Created Date:</label>
@@ -85,7 +85,7 @@
   </div>
     <div class="form-group">
     <label for="isdone">isdone:</label>
-    <input type="text" class="form-control" name="isdone" required>
+    <input type="number" min="0" max="1" class="form-control" name="isdone" required>
   </div>
   <button class="btn btn-primary btn-block" type="submit" >Create</button>
 </form>

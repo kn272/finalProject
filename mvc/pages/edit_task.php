@@ -64,35 +64,35 @@
     <div class="col-sm-6 text-left"> 
       <h1><p class="text-center">EDIT TASK</p></h1>
       <hr>
-<form action="index.php?page=tasks&action=store&id=<?php echo $data->id; ?> " method="post">
-  <div class="form-group">
-    <label for="owneremail">Owner Email:</label>
-    <input type="email" class="form-control" name="owneremail" value=<?php echo $data->owneremail; ?> required>
-  </div>
-    <div class="form-group">
-    <label for="createddate">Created Date:</label>
-    <input type="text" class="form-control" name="createddate" value=<?php echo $data->createddate; ?> readonly>
-  </div>
-    <div class="form-group">
-    <label for="duedate">Due Date:</label>
-    <input type="text" class="form-control" name="duedate" value=<?php echo $data->duedate; ?> readonly>
-  </div>
-    <div class="form-group">
-    <label for="message">Message:</label>
-    <input type="text" class="form-control" name="message" value=<?php echo $data->message; ?> required>
-  </div>
-    <div class="form-group">
-    <label for="isdone">isdone:</label>
-    <input type="text" class="form-control" name="isdone" value=<?php echo $data->isdone; ?> required>
-  </div>
-  <button class="btn btn-primary btn-block" type="submit" class="btn btn-default">Edit</button>
-</form>
-       
+      <?php date_default_timezone_set('America/New_York'); ?>
+      <form action="index.php?page=tasks&action=store&id=<?php echo $data->id; ?> " method="post">
+        <div class="form-group">
+         <label for="owneremail">Owner Email:</label>
+         <input type="email" class="form-control" name="owneremail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value=<?php echo $data->owneremail; ?> required>
+        </div>
+        <div class="form-group">
+         <label for="createddate">Date Updated:</label>
+         <input type="text" class="form-control" name="createddate" value=<?php echo date('Y-m-d')?> readonly>
+        </div>
+        <div class="form-group">
+         <label for="duedate">Due Date:</label>
+         <input type="text" class="form-control" name="duedate" value=<?php echo $data->duedate; ?> required>
+        </div>
+        <div class="form-group">
+         <label for="message">Message:</label>
+         <input type="text" class="form-control" name="message" value=<?php echo $data->message; ?> required>
+        </div>
+        <div class="form-group">
+         <label for="isdone">isdone:</label>
+         <input type="number" min="0" max="1" class="form-control" name="isdone" value=<?php echo $data->isdone; ?> required>
+        </div>
+         <button class="btn btn-primary btn-block" type="submit" class="btn btn-default">Edit</button>
+      </form>        
     </div>
-    <div class="col-sm-3 sidenav">
+      <div class="col-sm-3 sidenav">
+      </div>
     </div>
-  </div>
-</div>
+   </div>
 
 <footer class="container-fluid text-center">
   <p>Web Systems Development Final Project</p>

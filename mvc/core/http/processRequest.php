@@ -8,7 +8,7 @@ class processRequest
     {
 
         $requested_route = processRequest::getRequestedRoute();
-        print_r($requested_route);
+        //print_r($requested_route);
         $controller_name = $requested_route->controller;
         $controller_method = $requested_route->method;
         $controller_name::$controller_method();
@@ -29,7 +29,7 @@ class processRequest
             }
         }
         if (is_null($foundRoute)) {
-            controller::getTemplate('notfound',$routes);
+            controller::getTemplate('notfound');
             exit;
         } else {
             return $foundRoute;

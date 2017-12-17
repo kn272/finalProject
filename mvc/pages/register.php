@@ -90,7 +90,7 @@
          <input type="text" class="form-control" name="gender" required>
         </div>
         <div class="form-group">
-         <label for="password">Password:</label>
+         <label for="password">Password(min. 6 characters):</label>
          <input type="password" class="form-control" name="password" pattern=".{6,}" required>
         </div>
         <button class="btn btn-primary btn-block" type="submit" class="btn btn-default">Submit Form</button>

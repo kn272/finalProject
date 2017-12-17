@@ -29,7 +29,7 @@ class processRequest
             }
         }
         if (is_null($foundRoute)) {
-            controller::getTemplate('notfound');
+            controller::getTemplate('notfound',$routes);
             exit;
         } else {
             return $foundRoute;

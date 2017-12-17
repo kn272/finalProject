@@ -15,7 +15,8 @@ class tasksController extends http\controller
            if(key_exists('userID',$_SESSION)) {
                $userID = $_SESSION['userID'];
            } else {
-               echo 'you must be logged in to view tasks';
+               $data = 'you must be logged in to view tasks';
+               self::getTemplate('error',$data);
            }
         $userID = $_SESSION['userID'];
         $records = todos::findTasksbyID($userID);

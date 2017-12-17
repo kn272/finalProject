@@ -13,7 +13,7 @@ class htmlTable
         $tableGen .= '<meta name="viewport" content="width=device-width, initial-scale=1">';
         $tableGen .= '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">';
         $tableGen .= '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>';
-        $tableGen .= '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><style>th, td {padding: 6px; text-align: left;
+        $tableGen .= '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><style>th, td {padding: 10px; text-align: left;
 }</style></head>';
         $tableGen .= '<div class="container">';
         $tableGen .= '<body><table border="1" class="table-striped">';

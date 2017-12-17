@@ -64,38 +64,36 @@
     <div class="col-sm-6 text-left"> 
       <h1><p class="text-center">UPDATE PROFILE</p></h1>
       <hr>
-<form action="index.php?page=accounts&action=save&id=<?php echo $_SESSION['userID']; ?> " method="post">
-  <div class="form-group">
-    <label for="first name">First Name:</label>
-    <input type="text" class="form-control" name="fname" pattern=".{1,}" value=<?php echo $data->fname; ?> required>
-  </div>
-    <div class="form-group">
-    <label for="last name">Last Name:</label>
-    <input type="text" class="form-control" name="lname" pattern=".{1,}" value=<?php echo $data->lname; ?> required>
-  </div>
-    <div class="form-group">
-    <label for="email">Email address:</label>
-    <input type="email" class="form-control" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value=<?php echo $data->email; ?> required>
-  </div>
-    <div class="form-group">
-    <label for="phone">Phone:</label>
-    <input type="text" class="form-control" name="phone" value=<?php echo $data->phone; ?> required>
-  </div>
-    <div class="form-group">
-    <label for="birthday">Birthday:</label>
-    <input type="text" class="form-control" name="birthday" value=<?php echo $data->birthday; ?> required>
-  </div>
-    <div class="form-group">
-    <label for="gender">Gender:</label>
-    <input type="text" class="form-control" name="gender" value=<?php echo $data->gender; ?> required>
-  </div>
-  <div class="form-group">
-    <label for="password">Password:</label>
-    <input type="password" class="form-control" name="password" value='' pattern=".{6,}" required>
-  </div>
-  <button class="btn btn-primary btn-block" type="submit" class="btn btn-default">Submit Form</button>
-</form>
-       
+      <form action="index.php?page=accounts&action=save&id=<?php echo $_SESSION['userID']; ?> " method="post">
+        <div class="form-group">
+         <label for="first name">First Name:</label>
+         <input type="text" class="form-control" name="fname" pattern=".{1,}" value=<?php echo $data->fname; ?> required>
+        </div>
+        <div class="form-group">
+         <label for="last name">Last Name:</label>
+         <input type="text" class="form-control" name="lname" pattern=".{1,}" value=<?php echo $data->lname; ?> required>
+        </div>
+        <div class="form-group">
+         <label for="email">Email address:</label>
+         <input type="email" class="form-control" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value=<?php echo $data->email; ?> required>
+        </div>
+        <div class="form-group">
+         <label for="phone">Phone:</label>
+         <input type="text" class="form-control" name="phone" value=<?php echo $data->phone; ?> required>
+        </div>
+        <div class="form-group">
+         <label for="birthday">Birthday:</label>
+        </div>
+        <div class="form-group">
+         <label for="gender">Gender:</label>
+         <input type="text" class="form-control" name="gender" value=<?php echo $data->gender; ?> required>
+        </div>
+        <div class="form-group">
+         <label for="password">Password:</label>
+         <input type="password" class="form-control" name="password" value='' pattern=".{6,}" required>
+        </div>
+        <button class="btn btn-primary btn-block" type="submit" class="btn btn-default">Submit Form</button>
+      </form>       
     </div>
     <div class="col-sm-3 sidenav">
     </div>

@@ -67,15 +67,15 @@
 <form action="index.php?page=tasks&action=store&id=<?php echo $data->id; ?> " method="post">
   <div class="form-group">
     <label for="owneremail">Owner Email:</label>
-    <input type="text" class="form-control" name="owneremail" value=<?php echo $data->owneremail; ?> required>
+    <input type="email" class="form-control" name="owneremail" value=<?php echo $data->owneremail; ?> required>
   </div>
     <div class="form-group">
     <label for="createddate">Created Date:</label>
-    <input type="text" class="form-control" name="createddate" value=<?php echo $data->createddate; ?> required>
+    <input type="text" class="form-control" name="createddate" value=<?php echo $data->createddate; ?> readonly>
   </div>
     <div class="form-group">
     <label for="duedate">Due Date:</label>
-    <input type="text" class="form-control" name="duedate" value=<?php echo $data->duedate; ?> required>
+    <input type="text" class="form-control" name="duedate" value=<?php echo $data->duedate; ?> readonly>
   </div>
     <div class="form-group">
     <label for="message">Message:</label>

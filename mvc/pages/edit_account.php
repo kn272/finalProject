@@ -75,7 +75,7 @@
   </div>
     <div class="form-group">
     <label for="email">Email address:</label>
-    <input type="text" class="form-control" name="email" value=<?php echo $data->email; ?> required>
+    <input type="email" class="form-control" name="email" value=<?php echo $data->email; ?> required>
   </div>
     <div class="form-group">
     <label for="phone">Phone:</label>

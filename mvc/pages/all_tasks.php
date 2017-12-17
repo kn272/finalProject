@@ -15,7 +15,7 @@
     }
     
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 750px}
+    .row.content {height: 600px}
     
     /* Set gray background color and 100% height */
     .sidenav {
@@ -52,6 +52,10 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
       </ul>
+          <ul class="nav navbar-nav navbar-right">
+      <li><a href="index.php?page=accounts&action=edit&id=<?php echo $_SESSION['userID']; ?>""><span class="glyphicon glyphicon-user"></span> Update Profile</a></li>
+      <li><a href="index.php?page=accounts&action=logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+    </ul>
     </div>
   </div>
 </nav>
@@ -75,8 +79,6 @@
       }
      ?>
      <hr>
-     <h3><a class="btn btn-primary" href="index.php?page=accounts&action=edit&id=<?php echo $_SESSION['userID']; ?>">Update Profile</a></h3>
-       <h3><a class="btn btn-primary" href="index.php?page=accounts&action=logout">Logout</a></h3>
     </div>
     <div class="col-sm-2 sidenav">
     </div>

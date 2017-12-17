@@ -148,6 +148,7 @@ class accountsController extends http\controller
                 //echo '<br><h1>login successfull </h1> <br>';
                 session_start();
                 $_SESSION["userID"] = $user->id;
+                $_SESSION["email"] = $user->email;
                 header("Location: index.php?page=tasks&action=all");
                 //$data = todos::findTasksbyID($_SESSION["userID"]);
                 //self::getTemplate('all_tasks', $data);
